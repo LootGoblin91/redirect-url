@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=https://yourfinalredirecturl.com" />
-    <title>Redirecting...</title>
+    <title>OAuth Redirect</title>
 </head>
 <body>
-    <p>If you are not redirected, <a href="https://yourfinalredirecturl.com">click here</a>.</p>
+    <script>
+        // Extract the authorization code from the URL
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        
+        if (code) {
+            // Display the authorization code or handle it
+            document.body.innerHTML = `<p>Authorization Code: ${code}</p>`;
+        } else {
+            document.body.innerHTML = '<p>No authorization code found.</p>';
+        }
+    </script>
 </body>
 </html>
